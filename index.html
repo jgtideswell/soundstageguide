@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonos Placement & Room Clearance Matrix | SoundstageGuide</title>
+  <meta name="description" content="An independent acoustic placement guide helping Sonos speaker owners position their soundbars, surrounds, and subs correctly for optimal soundstage performance.">
+  <link rel="canonical" href="https://soundstageguide.com/">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              800: '#1e293b',
+              900: '#0f172a',
+              amber: '#f59e0b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .table-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .table-container::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .table-container::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .table-container::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased font-sans flex flex-col min-h-screen">
+
+  <!-- Compliance Banner (Above-the-Fold FTC / Amazon Requirement) -->
+  <div class="bg-slate-100 border-b border-slate-200 text-slate-600 text-[11px] py-1.5 px-4 text-center">
+    <span>SoundstageGuide is an independent acoustic resource. As an Amazon Associate I earn from qualifying purchases at no extra cost to you.</span>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="border-b border-slate-200 bg-white sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <span class="bg-slate-900 text-white font-black text-sm sm:text-base px-2.5 py-1 rounded tracking-tight">SOUNDSTAGE</span>
+        <span class="font-semibold text-slate-700 tracking-tight text-sm sm:text-base">Guide</span>
+      </a>
+      <nav class="flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#about" class="hover:text-slate-900 transition-colors hidden sm:inline-block">About</a>
+        <a href="#dilemmas" class="hover:text-slate-900 transition-colors">Placement Rules</a>
+        <a href="#matrix" class="hover:text-slate-900 transition-colors">Clearance Matrix</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="about" class="bg-gradient-to-b from-white to-slate-50 border-b border-slate-200 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200 mb-4">
+          Independent Acoustic Positioning Guide
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          Position your Sonos system for true soundstage clarity.
+        </h1>
+        
+        <!-- Purpose / Overview Paragraphs -->
+        <div class="mt-5 space-y-4 text-slate-600 leading-relaxed text-base sm:text-lg">
+          <p>
+            <strong>Welcome to SoundstageGuide</strong>—an independent, placement-first audio resource created specifically for Sonos owners and home audio enthusiasts. Getting exceptional sound isn't just about picking the right speaker; it is about where that speaker physically lives in your room.
+          </p>
+          <p class="text-sm sm:text-base text-slate-600 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+            💡 <strong>Why this guide exists:</strong> Most retail spec sheets give you cabinet dimensions and driver counts, but completely overlook acoustic boundaries. A Sonos Era 300 shoved inside an enclosed bookcase or an Arc mounted flush against a television screen loses almost all of its spatial Dolby Atmos capability. We break down the exact physical clearances, height rules, orientation modes, and boundary separation each model requires so you get the full audio experience you paid for.
+          </p>
+        </div>
+
+        <div class="mt-6 flex flex-wrap items-center gap-4 text-xs font-medium text-slate-500">
+          <span class="flex items-center gap-1.5">✓ Up-Firing Clearance Data</span>
+          <span class="flex items-center gap-1.5">✓ Surround Angle Guidance</span>
+          <span class="flex items-center gap-1.5">✓ Shelf &amp; Kallax Compatibility</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Placement Dilemmas / Quick Rules -->
+  <section id="dilemmas" class="py-10 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl font-bold text-slate-900 tracking-tight mb-6 flex items-center gap-2">
+        <span>⚠️</span> 3 Crucial Placement Rules You Must Know
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Dilemma 1: Kallax -->
+        <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/70 hover:border-slate-300 transition-colors">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="font-bold text-slate-900">The Enclosed Shelf / Kallax Test</h3>
+            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-rose-100 text-rose-800">High Risk</span>
+          </div>
+          <p class="text-sm text-slate-600 leading-relaxed mb-3">
+            <strong>Era 300 will NOT perform properly</strong> inside an enclosed shelf or IKEA Kallax cube. The top and side drivers fire spatial audio outward—boxing them in ruins Dolby Atmos completely.
+          </p>
+          <p class="text-xs text-slate-500 font-medium border-t border-slate-200 pt-2">
+            <strong>Safe alternatives:</strong> Era 100 fits comfortably with adequate rear airflow. Five fits vertically with slight EQ bass roll-off.
+          </p>
+        </div>
+
+        <!-- Dilemma 2: Soundbar Height Clearance -->
+        <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/70 hover:border-slate-300 transition-colors">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="font-bold text-slate-900">TV Gap &amp; Atmos Soundbars</h3>
+            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800">Clearance</span>
+          </div>
+          <p class="text-sm text-slate-600 leading-relaxed mb-3">
+            The <strong>Sonos Arc / Arc Ultra</strong> requires at least <strong>4 inches (10 cm)</strong> between the top of the soundbar and the bottom of your TV screen.
+          </p>
+          <p class="text-xs text-slate-500 font-medium border-t border-slate-200 pt-2">
+            <strong>Why:</strong> Mounting flush underneath your TV directly blocks the upward-firing height drivers, nullifying ceiling bounce effects.
+          </p>
+        </div>
+
+        <!-- Dilemma 3: Rear Surround Angles -->
+        <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/70 hover:border-slate-300 transition-colors">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="font-bold text-slate-900">Surround Alignment &amp; Toe-In</h3>
+            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-blue-100 text-blue-800">Alignment</span>
+          </div>
+          <p class="text-sm text-slate-600 leading-relaxed mb-3">
+            <strong>Era 100:</strong> Angle inwards directly toward the primary listening spot.<br>
+            <strong>Era 300:</strong> Must face <em>straight forward toward the TV</em>, never angled inward.
+          </p>
+          <p class="text-xs text-slate-500 font-medium border-t border-slate-200 pt-2">
+            <strong>Why:</strong> Era 300 uses side-wall bounce reflections. Angling it fires side surround channels directly into the listener's head.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Matrix Section -->
+  <main id="matrix" class="flex-grow py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    
+    <!-- Controls / Filters -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+      <div>
+        <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Sonos Acoustic &amp; Placement Matrix</h2>
+        <p class="text-sm text-slate-500">Filter by category to check physical boundaries, clearances, and mounting requirements.</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap gap-2" id="filter-container">
+        <button onclick="filterCategory('all')" data-filter="all" class="filter-btn active px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-slate-900 text-white shadow-sm">All Speakers</button>
+        <button onclick="filterCategory('home-cinema')" data-filter="home-cinema" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-white border border-slate-300 text-slate-700 hover:bg-slate-50">Home Cinema</button>
+        <button onclick="filterCategory('spatial')" data-filter="spatial" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-white border border-slate-300 text-slate-700 hover:bg-slate-50">Spatial / Atmos</button>
+        <button onclick="filterCategory('stereo')" data-filter="stereo" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-white border border-slate-300 text-slate-700 hover:bg-slate-50">Stereo / Hi-Fi</button>
+        <button onclick="filterCategory('portable')" data-filter="portable" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-white border border-slate-300 text-slate-700 hover:bg-slate-50">Portable</button>
+      </div>
+    </div>
+
+    <!-- Responsive Table Wrapper -->
+    <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+      <div class="overflow-x-auto table-container">
+        <table class="w-full text-left text-sm border-collapse min-w-[1000px]" id="speakers-table">
+          <thead>
+            <tr class="bg-slate-100/80 border-b border-slate-200 text-slate-700 font-semibold uppercase text-[11px] tracking-wider">
+              <th scope="col" class="py-3.5 px-4 sticky left-0 bg-slate-100/95 z-10 w-44 backdrop-blur">Model</th>
+              <th scope="col" class="py-3.5 px-4 w-52">Best For</th>
+              <th scope="col" class="py-3.5 px-4 w-72">Acoustic Clearances Required</th>
+              <th scope="col" class="py-3.5 px-4 w-44">Orientation &amp; Angle</th>
+              <th scope="col" class="py-3.5 px-4 w-44">Shelf / Enclosed Fit</th>
+              <th scope="col" class="py-3.5 px-4 w-56">Recommended Mount / Accessory</th>
+              <th scope="col" class="py-3.5 px-4 w-36 text-center">Pricing Check</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-600" id="matrix-tbody">
+            
+            <!-- Era 100 -->
+            <tr data-category="stereo home-cinema" class="hover:bg-slate-50/60 transition-colors">
+              <td class="py-4 px-4 sticky left-0 bg-white font-bold text-slate-900 z-10">
+                Era 100
+                <span class="block text-xs font-normal text-slate-500">Stereo Compact</span>
+              </td>
+              <td class="py-4 px-4">
+                Bedrooms, kitchens, stereo pairs, entry rear surround channels.
+              </td>
+              <td class="py-4 px-4">
+                <ul class="list-disc list-inside space-y-1 text-xs">
+                  <li><strong>Rear clearance:</strong> 1–2" (2.5–5 cm) for passive bass reflex</li>
+                  <li><strong>Vertical clearance:</strong> Open above for wide dispersion</li>
+                </ul>
+              </td>
+              <td class="py-4 px-4 text-xs">
+                Vertical only. Angle inward toward main listening area when used as rears.
+              </td>
+              <td class="py-4 px-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-800">
+                  ✓ Fits Kallax
+                </span>
+                <p class="text-[11px] text-slate-500 mt-1">Leaves ample side clearance for stereo sound spread.</p>
+              </td>
+              <td class="py-4 px-4 text-xs space-y-1">
+                <div>
+                  <a href="https://www.amazon.com/s?k=Sanus+Floor+Stand+Sonos+Era+100&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="text-blue-600 hover:underline font-medium">Sanus Floor Stand (Single)</a>
+                </div>
+                <div>
+                  <a href="https://www.amazon.com/s?k=Sanus+Wall+Mount+Sonos+Era+100&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="text-blue-600 hover:underline font-medium">Sanus Tilt &amp; Swivel Wall Mount</a>
+                </div>
+              </td>
+              <td class="py-4 px-4 text-center">
+                <a href="https://www.amazon.com/s?k=Sonos+Era+100+Black&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="inline-block w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs py-2 px-3 rounded shadow transition-all">
+                  Check Price
+                </a>
+              </td>
+            </tr>
+
+            <!-- Era 300 -->
+            <tr data-category="spatial home-cinema" class="hover:bg-slate-50/60 transition-colors">
+              <td class="py-4 px-4 sticky left-0 bg-white font-bold text-slate-900 z-10">
+                Era 300
+                <span class="block text-xs font-normal text-slate-500">Spatial / Atmos</span>
+              </td>
+              <td class="py-4 px-4">
+                Dolby Atmos spatial music, flagship cinema surround rears.
+              </td>
+              <td class="py-4 px-4">
+                <ul class="list-disc list-inside space-y-1 text-xs">
+                  <li><strong>Overhead:</strong> Min. 2 ft (60 cm) unobstructed ceiling line</li>
+                  <li><strong>Sides:</strong> Min. 8" (20 cm) flanking clearance for side drivers</li>
+                </ul>
+              </td>
+              <td class="py-4 px-4 text-xs">
+                Face <strong>straight forward</strong> toward TV as surrounds. Do NOT toe-in.
+              </td>
+              <td class="py-4 px-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-rose-100 text-rose-800">
+                  ✕ Never Enclose
+                </span>
+                <p class="text-[11px] text-slate-500 mt-1">Up-firing height channels will be completely choked.</p>
+              </td>
+              <td class="py-4 px-4 text-xs space-y-1">
+                <div>
+                  <a href="https://www.amazon.com/s?k=Sanus+Floor+Stand+Sonos+Era+300&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="text-blue-600 hover:underline font-medium">Sanus Floor Stand (Single)</a>
+                </div>
+                <div>
+                  <a href="https://www.amazon.com/s?k=Sanus+Wall+Mount+Sonos+Era+300&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="text-blue-600 hover:underline font-medium">Sanus Tilt &amp; Swivel Wall Mount</a>
+                </div>
+              </td>
+              <td class="py-4 px-4 text-center">
+                <a href="https://www.amazon.com/s?k=Sonos+Era+300+Black&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="inline-block w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs py-2 px-3 rounded shadow transition-all">
+                  Check Price
+                </a>
+              </td>
+            </tr>
+
+            <!-- Sonos Five -->
+            <tr data-category="stereo" class="hover:bg-slate-50/60 transition-colors">
+              <td class="py-4 px-4 sticky left-0 bg-white font-bold text-slate-900 z-10">
+                Sonos Five
+                <span class="block text-xs font-normal text-slate-500">Hi-Fi Streaming</span>
+              </td>
+              <td class="py-4 px-4">
+                Turntables / vinyl line-in, large open rooms, dedicated stereo listening.
+              </td>
+              <td class="py-4 px-4">
+                <ul class="list-disc list-inside space-y-1 text-xs">
+                  <li><strong>Rear clearance:</strong> Min. 6" (15 cm) to avoid boomy bass resonance</li>
+                  <li>Needs a rigid, non-resonant surface</li>
+                </ul>
+              </td>
+              <td class="py-4 px-4 text-xs">
+                Horizontal = Stereo soundstage.<br>Vertical = Focused Mono (for paired stereo mode).
+              </td>
+              <td class="py-4 px-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-800">
+                  ⚠️ Vertical Only
+                </span>
+                <p class="text-[11px] text-slate-500 mt-1">Too wide horizontally for Kallax (requires 36.4 cm).</p>
+              </td>
+              <td class="py-4 px-4 text-xs">
+                <a href="https://www.amazon.com/s?k=Flexson+Floor+Stand+Sonos+Five&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="text-blue-600 hover:underline font-medium">Flexson Floor Stand (Single)</a>
+              </td>
+              <td class="py-4 px-4 text-center">
+                <a href="https://www.amazon.com/s?k=Sonos+Five+Black&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="inline-block w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs py-2 px-3 rounded shadow transition-all">
+                  Check Price
+                </a>
+              </td>
+            </tr>
+
+            <!-- Arc Soundbar -->
+            <tr data-category="home-cinema spatial" class="hover:bg-slate-50/60 transition-colors">
+              <td class="py-4 px-4 sticky left-0 bg-white font-bold text-slate-900 z-10">
+                Arc Soundbar
+                <span class="block text-xs font-normal text-slate-500">Premium Atmos</span>
+              </td>
+              <td class="py-4 px-4">
+                Main living rooms, TVs 55"+, dedicated Atmos home cinema soundstage.
+              </td>
+              <td class="py-4 px-4">
+                <ul class="list-disc list-inside space-y-1 text-xs">
+                  <li><strong>Below TV:</strong> Min. 4" (10 cm) gap is mandatory</li>
+                  <li><strong>Sides:</strong> Min. 1 ft (30 cm) from adjacent sidewalls</li>
+                </ul>
+              </td>
+              <td class="py-4 px-4 text-xs">
+                Horizontal centered beneath display. Pull forward to front console edge.
+              </td>
+              <td class="py-4 px-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-rose-100 text-rose-800">
+                  ✕ Open Top Only
+                </span>
+                <p class="text-[11px] text-slate-500 mt-1">Never place inside cabinet cubbies.</p>
+              </td>
+              <td class="py-4 px-4 text-xs">
+                <a href="https://www.amazon.com/s?k=Sonos+Arc+Wall+Mount+Official&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="text-blue-600 hover:underline font-medium">Sonos Official Extendable Wall Mount</a>
+              </td>
+              <td class="py-4 px-4 text-center">
+                <a href="https://www.amazon.com/s?k=Sonos+Arc+Soundbar+Black&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="inline-block w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs py-2 px-3 rounded shadow transition-all">
+                  Check Price
+                </a>
+              </td>
+            </tr>
+
+            <!-- Beam (Gen 2) -->
+            <tr data-category="home-cinema" class="hover:bg-slate-50/60 transition-colors">
+              <td class="py-4 px-4 sticky left-0 bg-white font-bold text-slate-900 z-10">
+                Beam (Gen 2)
+                <span class="block text-xs font-normal text-slate-500">Compact Soundbar</span>
+              </td>
+              <td class="py-4 px-4">
+                Small-to-medium rooms, TVs up to 55", secondary media areas.
+              </td>
+              <td class="py-4 px-4">
+                <ul class="list-disc list-inside space-y-1 text-xs">
+                  <li><strong>Below TV:</strong> Min. 2–3" (5–8 cm) gap</li>
+                  <li><strong>Sides:</strong> Leave 12" flanking clearance for side arrays</li>
+                </ul>
+              </td>
+              <td class="py-4 px-4 text-xs">
+                Horizontal centered under TV screen.
+              </td>
+              <td class="py-4 px-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-800">
+                  ⚠️ Semi-Enclosed OK
+                </span>
+                <p class="text-[11px] text-slate-500 mt-1">Can sit on an open console shelf if pulled flush with front edge.</p>
+              </td>
+              <td class="py-4 px-4 text-xs">
+                <a href="https://www.amazon.com/s?k=Sanus+Soundbar+TV+Mount+Sonos+Beam&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="text-blue-600 hover:underline font-medium">Sanus Beam TV-Mount Bracket</a>
+              </td>
+              <td class="py-4 px-4 text-center">
+                <a href="https://www.amazon.com/s?k=Sonos+Beam+Gen+2+Black&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="inline-block w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs py-2 px-3 rounded shadow transition-all">
+                  Check Price
+                </a>
+              </td>
+            </tr>
+
+            <!-- Sub Mini -->
+            <tr data-category="home-cinema stereo" class="hover:bg-slate-50/60 transition-colors">
+              <td class="py-4 px-4 sticky left-0 bg-white font-bold text-slate-900 z-10">
+                Sub Mini
+                <span class="block text-xs font-normal text-slate-500">Sealed Subwoofer</span>
+              </td>
+              <td class="py-4 px-4">
+                Paired with Beam, Ray, or Era 100 stereo pairs in apartments &amp; small rooms.
+              </td>
+              <td class="py-4 px-4">
+                <ul class="list-disc list-inside space-y-1 text-xs">
+                  <li><strong>Center tunnel:</strong> Keep both ends clear of obstacles</li>
+                  <li>Can sit close to walls due to force-canceling drivers</li>
+                </ul>
+              </td>
+              <td class="py-4 px-4 text-xs">
+                Upright only. Omnidirectional bass dispersion.
+              </td>
+              <td class="py-4 px-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-800">
+                  ✓ Alcoves OK
+                </span>
+                <p class="text-[11px] text-slate-500 mt-1">Cabinet does not vibrate; safe placed directly beside furniture.</p>
+              </td>
+              <td class="py-4 px-4 text-xs">
+                Floor placement (self-contained vibration isolation).
+              </td>
+              <td class="py-4 px-4 text-center">
+                <a href="https://www.amazon.com/s?k=Sonos+Sub+Mini+Black&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="inline-block w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs py-2 px-3 rounded shadow transition-all">
+                  Check Price
+                </a>
+              </td>
+            </tr>
+
+            <!-- Sub (Gen 3 / 4) -->
+            <tr data-category="home-cinema stereo" class="hover:bg-slate-50/60 transition-colors">
+              <td class="py-4 px-4 sticky left-0 bg-white font-bold text-slate-900 z-10">
+                Sub (Gen 3 / 4)
+                <span class="block text-xs font-normal text-slate-500">Flagship Subwoofer</span>
+              </td>
+              <td class="py-4 px-4">
+                Paired with Arc Ultra / Arc or Five stereo pairs for maximum cinema low-end.
+              </td>
+              <td class="py-4 px-4">
+                <ul class="list-disc list-inside space-y-1 text-xs">
+                  <li>Center acoustic opening must remain completely unobstructed</li>
+                  <li>Keep 1" (2.5 cm) distance from side walls if upright</li>
+                </ul>
+              </td>
+              <td class="py-4 px-4 text-xs">
+                Upright OR laid flat on its back underneath a sofa/credenza.
+              </td>
+              <td class="py-4 px-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-800">
+                  ✓ Under-Sofa Fit
+                </span>
+                <p class="text-[11px] text-slate-500 mt-1">Fits under raised sofas with 6"+ clearance using rubber feet.</p>
+              </td>
+              <td class="py-4 px-4 text-xs">
+                <a href="https://www.amazon.com/s?k=Sanus+Sub+Wall+Mount+Sonos&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="text-blue-600 hover:underline font-medium">Sanus Sub Wall Mount Bracket</a>
+              </td>
+              <td class="py-4 px-4 text-center">
+                <a href="https://www.amazon.com/s?k=Sonos+Sub+Gen+3+Black&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="inline-block w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs py-2 px-3 rounded shadow transition-all">
+                  Check Price
+                </a>
+              </td>
+            </tr>
+
+            <!-- Move 2 -->
+            <tr data-category="portable stereo" class="hover:bg-slate-50/60 transition-colors">
+              <td class="py-4 px-4 sticky left-0 bg-white font-bold text-slate-900 z-10">
+                Move 2
+                <span class="block text-xs font-normal text-slate-500">Portable Stereo</span>
+              </td>
+              <td class="py-4 px-4">
+                Patios, gardens, kitchens, and rooms requiring flexible mobile placement.
+              </td>
+              <td class="py-4 px-4">
+                <ul class="list-disc list-inside space-y-1 text-xs">
+                  <li>Automatic Trueplay retunes within 15 seconds of relocation</li>
+                  <li>IP56 water &amp; dust resistance rating</li>
+                </ul>
+              </td>
+              <td class="py-4 px-4 text-xs">
+                Vertical only. Dual angled tweeters project wide stereo sound.
+              </td>
+              <td class="py-4 px-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-800">
+                  ✓ Flexible Fit
+                </span>
+                <p class="text-[11px] text-slate-500 mt-1">Trueplay self-adjusts when placed in tight corners or against walls.</p>
+              </td>
+              <td class="py-4 px-4 text-xs">
+                <a href="https://www.amazon.com/s?k=Sonos+Charging+Base+Move+2&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="text-blue-600 hover:underline font-medium">Official Sonos Wireless Charging Base</a>
+              </td>
+              <td class="py-4 px-4 text-center">
+                <a href="https://www.amazon.com/s?k=Sonos+Move+2+Black&tag=soundstageguide-20" target="_blank" rel="sponsored nofollow noopener" class="inline-block w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs py-2 px-3 rounded shadow transition-all">
+                  Check Price
+                </a>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Acoustic Note -->
+    <div class="mt-8 bg-slate-100 border border-slate-200 rounded-xl p-5 text-xs text-slate-600 space-y-2">
+      <p class="font-bold text-slate-800 uppercase tracking-wide">A Note on Software Calibration</p>
+      <p>
+        While acoustic room calibration tools like Sonos Trueplay can compensate for frequency nodes and boundary reflections, they cannot unblock obstructed drivers. If up-firing Atmos or side-reflecting drivers are enclosed inside shelving units, spatial cues will be lost before soundwaves can disperse into the room.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- Legal & Transparency Footer -->
+  <footer class="border-t border-slate-200 bg-white py-10 mt-12 text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      
+      <!-- Primary Associate Statutory Disclaimer -->
+      <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 text-center max-w-2xl mx-auto">
+        <p class="font-semibold text-slate-700 mb-1">Affiliate Disclosure</p>
+        <p class="text-slate-600 leading-relaxed">
+          As an Amazon Associate I earn from qualifying purchases.
+        </p>
+        <p class="text-[11px] text-slate-400 mt-1">
+          SoundstageGuide participates in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by linking to Amazon.com. Product prices and availability are accurate as of the date/time indicated and are subject to change.
+        </p>
+      </div>
+
+      <div class="text-center space-y-2 pt-2">
+        <p class="text-slate-500 max-w-2xl mx-auto">
+          SoundstageGuide is an independent acoustic guide and audio resource. We are not affiliated with, authorized, maintained, sponsored, or endorsed by Sonos, Inc. Sonos and all associated product names are registered trademarks of Sonos, Inc.
+        </p>
+
+        <!-- Compliance Links: Privacy, Disclosure, Contact -->
+        <div class="flex items-center justify-center gap-4 text-slate-600 font-medium pt-2">
+          <a href="/privacy-policy" class="hover:underline">Privacy Policy</a>
+          <span>•</span>
+          <a href="/affiliate-disclosure" class="hover:underline">Affiliate Disclosure</a>
+          <span>•</span>
+          <a href="/contact" class="hover:underline">Contact</a>
+        </div>
+
+        <p class="text-slate-400 pt-2">© <span id="year"></span> SoundstageGuide. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Filter Script -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function filterCategory(category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-filter') === category) {
+          btn.className = "filter-btn active px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-slate-900 text-white shadow-sm";
+        } else {
+          btn.className = "filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-white border border-slate-300 text-slate-700 hover:bg-slate-50";
+        }
+      });
+
+      const rows = document.querySelectorAll('#matrix-tbody tr');
+      rows.forEach(row => {
+        const rowCategories = row.getAttribute('data-category') || '';
+        if (category === 'all' || rowCategories.includes(category)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
