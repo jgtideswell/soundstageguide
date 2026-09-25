@@ -14,7 +14,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sonos Placement & Room Clearance Matrix | SoundstageGuide</title>
-  <meta name="description" content="Master Sonos acoustic placement. Interactive Dolby Atmos clearance calculator, SVG ray-tracing visualizer, and boundary EQ tuning assistant.">
+  <meta name="description" content="Master Sonos acoustic placement. Interactive Dolby Atmos clearance calculator, SVG ray-tracing visualizer, boundary EQ tuning assistant, and comprehensive clearance matrix.">
   <link rel="canonical" href="https://soundstageguide.com/">
 
   <!-- Open Graph / Facebook / Reddit -->
@@ -164,7 +164,8 @@
         <a href="#visualizer" class="hover:text-slate-900 transition-colors hidden md:inline-block">Ray Tracer</a>
         <a href="#eq-tuner" class="hover:text-slate-900 transition-colors hidden sm:inline-block">EQ Tuner</a>
         <a href="#matrix" class="hover:text-slate-900 transition-colors">Clearance Matrix</a>
-        <a href="#guide" class="hover:text-slate-900 transition-colors">Guide</a>
+        <a href="#guide" class="hover:text-slate-900 transition-colors hidden lg:inline-block">Engineering Guide</a>
+        <a href="/guides/" class="text-amber-800 bg-amber-100 hover:bg-amber-200 px-3 py-1 rounded-lg font-bold transition-colors">Guides Index →</a>
       </nav>
     </div>
   </header>
@@ -193,7 +194,9 @@
           <span class="flex items-center gap-1.5">✓ Up-Firing Clearance Data</span>
           <span class="flex items-center gap-1.5">✓ Interactive Ray Tracer</span>
           <span class="flex items-center gap-1.5">✓ Boundary EQ Tuner</span>
-          <span class="flex items-center gap-1.5">✓ Full Model Matrix</span>
+          <a href="/guides/" class="flex items-center gap-1 text-amber-700 font-bold hover:underline">
+            <span>📚 Browse Setup Guides Library →</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1216,7 +1219,7 @@
             <div class="bg-white p-4 rounded-xl border border-slate-200">
               <h4 class="font-bold text-slate-900">Can Sonos Trueplay fix bad speaker placement?</h4>
               <p class="mt-1 text-slate-600">
-                Trueplay uses your iOS device or speaker microphones to adjust EQ frequency curves and trim boundary gain. However, software cannot bend soundwaves around physical obstructions. If an up-firing driver is blocked by a shelf or a soundbar is hidden in a cupboard, Trueplay cannot restore the lost audio.
+                Trueplay uses digital signal processing to adjust EQ frequency curves and trim boundary gain. However, software cannot bend soundwaves around physical obstructions. If an up-firing driver is blocked by a shelf or a soundbar is hidden in a cupboard, Trueplay cannot restore the lost audio.
               </p>
             </div>
             <div class="bg-white p-4 rounded-xl border border-slate-200">
@@ -1236,6 +1239,20 @@
 
       </div>
     </article>
+
+    <!-- Bottom Guides Callout Banner -->
+    <div class="mt-14 p-6 sm:p-8 bg-slate-900 text-white rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
+      <div class="space-y-1">
+        <span class="text-xs uppercase font-bold tracking-wider text-amber-400">Troubleshooting &amp; Setup Library</span>
+        <h3 class="text-xl font-bold text-white tracking-tight">Looking for detailed speaker installation walkthroughs?</h3>
+        <p class="text-xs sm:text-sm text-slate-400 max-w-xl">
+          Explore our complete directory of setup articles covering TV bezel drop measurements, surround speaker angles, and small apartment subwoofer positioning.
+        </p>
+      </div>
+      <a href="/guides/" class="whitespace-nowrap px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs tracking-tight transition-all shadow-md">
+        View All Guides &amp; Articles →
+      </a>
+    </div>
 
     <!-- Privacy Policy Section -->
     <section id="privacy" class="mt-14 pt-10 border-t border-slate-200">
@@ -1290,6 +1307,13 @@
         <p class="text-[11px] text-slate-400 mt-1">
           SoundstageGuide participates in the Amazon EU Associates Programme, an affiliate advertising programme designed to provide a means for sites to earn advertising fees by linking to Amazon.co.uk. Product prices and availability are accurate as of the date/time indicated and are subject to change.
         </p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-6 pt-2 text-xs font-semibold text-slate-600">
+        <a href="/" class="hover:text-slate-900 transition-colors">Home</a>
+        <a href="/guides/" class="hover:text-slate-900 transition-colors">Acoustic Guides Directory</a>
+        <a href="/guides/sonos-arc-tv-clearance.html" class="hover:text-slate-900 transition-colors">Arc TV Clearance Guide</a>
+        <a href="#privacy" class="hover:text-slate-900 transition-colors">Privacy Policy</a>
       </div>
 
       <div class="text-center space-y-2 pt-2">
