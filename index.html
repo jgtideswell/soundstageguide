@@ -14,8 +14,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sonos Placement & Room Clearance Matrix | SoundstageGuide</title>
-  <meta name="description" content="Comprehensive Sonos placement guide. Master soundstage setup, boundary gain, Dolby Atmos clearances, surround speaker angles, and Kallax shelf acoustics.">
+  <meta name="description" content="Master Sonos acoustic placement. Interactive Dolby Atmos clearance calculator, SVG ray-tracing visualizer, and boundary EQ tuning assistant.">
   <link rel="canonical" href="https://soundstageguide.com/">
+
+  <!-- Open Graph / Facebook / Reddit -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://soundstageguide.com/">
+  <meta property="og:title" content="Sonos Placement & Room Clearance Matrix | SoundstageGuide">
+  <meta property="og:description" content="Calculate physical TV clearances, Atmos ceiling reflection angles, and baseline EQ adjustments for your Sonos system.">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://soundstageguide.com/">
+  <meta name="twitter:title" content="Sonos Placement & Room Clearance Matrix | SoundstageGuide">
+  <meta name="twitter:description" content="Interactive clearance calculator, ray-tracing simulator, and acoustic setup matrix for Sonos Arc, Arc Ultra, Era 100, Era 300, and Sub.">
 
   <!-- Favicon (Inline Acoustic Wave SVG) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><path d='M7 16h2m3-5v10m5-13v16m5-11v6m5-4h2' stroke='%23f59e0b' stroke-width='2.5' stroke-linecap='round'/></svg>">
@@ -55,6 +67,83 @@
       background: #94a3b8;
     }
   </style>
+
+  <!-- Structured Data: WebApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Sonos Acoustic Clearance & Placement Calculator",
+    "url": "https://soundstageguide.com/#calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "description": "Interactive acoustic tool calculating vertical TV drop clearances, Dolby Atmos specular reflection points, and EQ tuning presets for Sonos setups.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "GBP"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I place a Sonos Era 300 inside an IKEA Kallax or enclosed shelf?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The Sonos Era 300 features upward-firing height transducers and angled side-firing drivers for Dolby Atmos diffusion. Enclosing the speaker inside a cabinet or IKEA Kallax cube completely obstructs these drivers, ruining spatial sound dispersion and causing severe cavity resonance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much clearance does the Sonos Arc or Arc Ultra need under a TV?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Sonos Arc requires a minimum gap of 4 inches (10 cm) below the bottom of the TV bezel, while the Sonos Arc Ultra requires at least 5.5 inches (14 cm). Mounting either soundbar flush beneath a TV physically blocks the upward-firing height channels, preventing Dolby Atmos ceiling reflections."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should Sonos Era 300 rear surround speakers be angled towards the listener?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Unlike traditional direct-radiating speakers or the Era 100, Era 300 rear surrounds must face straight forward towards the television. The Era 300 relies on outward side-firing drivers to reflect surround audio off side walls; angling them inward fires side channels straight into listeners' faces."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Sonos Trueplay fix bad speaker placement?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Trueplay uses digital signal processing to adjust EQ curves and mitigate room modes and boundary gain. However, software cannot bend soundwaves around physical barriers. If an upward-firing driver is blocked by an overhanging display or shelf, Trueplay cannot recover the lost spatial cues."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How far behind the couch should Sonos surround speakers be positioned?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The ideal surround placement is 2 to 6 feet behind and 110° to 120° off-axis relative to the main listening position, with tweeters aligned approximately 6 to 12 inches above seated ear level."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I mount a Sonos Arc or Arc Ultra above my TV screen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "While physically possible, it is not acoustically recommended. Tilting the soundbar downward to target seated ear level directs the upward-firing Atmos transducers toward the front wall instead of bouncing off the ceiling, collapsing height imaging."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased font-sans flex flex-col min-h-screen">
 
@@ -70,12 +159,12 @@
         <span class="bg-slate-900 text-white font-black text-sm sm:text-base px-2.5 py-1 rounded tracking-tight">SOUNDSTAGE</span>
         <span class="font-semibold text-slate-700 tracking-tight text-sm sm:text-base">Guide</span>
       </a>
-      <nav class="flex items-center gap-6 text-sm font-medium text-slate-600">
-        <a href="#about" class="hover:text-slate-900 transition-colors hidden sm:inline-block">About</a>
-        <a href="#dilemmas" class="hover:text-slate-900 transition-colors">Placement Rules</a>
+      <nav class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm font-medium text-slate-600">
+        <a href="#calculator" class="hover:text-slate-900 transition-colors">Calculator</a>
+        <a href="#visualizer" class="hover:text-slate-900 transition-colors hidden md:inline-block">Ray Tracer</a>
+        <a href="#eq-tuner" class="hover:text-slate-900 transition-colors hidden sm:inline-block">EQ Tuner</a>
         <a href="#matrix" class="hover:text-slate-900 transition-colors">Clearance Matrix</a>
-        <a href="#guide" class="hover:text-slate-900 transition-colors">Acoustic Guide</a>
-        <a href="#privacy" class="hover:text-slate-900 transition-colors">Privacy</a>
+        <a href="#guide" class="hover:text-slate-900 transition-colors">Guide</a>
       </nav>
     </div>
   </header>
@@ -91,21 +180,378 @@
           Position your Sonos system for true soundstage clarity.
         </h1>
         
-        <!-- Purpose / Overview Paragraphs -->
         <div class="mt-5 space-y-4 text-slate-600 leading-relaxed text-base sm:text-lg">
           <p>
             <strong>Welcome to SoundstageGuide</strong>—an independent, placement-first audio resource created specifically for Sonos owners and home audio enthusiasts. Getting exceptional sound isn't just about picking the right speaker; it is about where that speaker physically lives in your room.
           </p>
           <p class="text-sm sm:text-base text-slate-600 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-            💡 <strong>Why this guide exists:</strong> Most retail spec sheets give you cabinet dimensions and driver counts, but completely overlook acoustic boundaries. A Sonos Era 300 shoved inside an enclosed bookcase or an Arc mounted flush against a television screen loses almost all of its spatial Dolby Atmos capability. We break down the exact physical clearances, height rules, orientation modes, and boundary separation each model requires so you get the full audio experience you paid for.
+            💡 <strong>Why physical placement matters:</strong> Most retail spec sheets give you cabinet dimensions and driver counts, but completely overlook boundary acoustics. A Sonos Era 300 shoved inside an enclosed bookcase or an Arc mounted flush against a television bezel loses almost all of its spatial Dolby Atmos capability. We provide physical clearances, ray-tracing reflection paths, and EQ baselines to dial in your setup.
           </p>
         </div>
 
         <div class="mt-6 flex flex-wrap items-center gap-4 text-xs font-medium text-slate-500">
           <span class="flex items-center gap-1.5">✓ Up-Firing Clearance Data</span>
-          <span class="flex items-center gap-1.5">✓ Surround Angle Guidance</span>
-          <span class="flex items-center gap-1.5">✓ Shelf &amp; Kallax Compatibility</span>
+          <span class="flex items-center gap-1.5">✓ Interactive Ray Tracer</span>
+          <span class="flex items-center gap-1.5">✓ Boundary EQ Tuner</span>
+          <span class="flex items-center gap-1.5">✓ Full Model Matrix</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Clearance Calculator Section -->
+  <section id="calculator" class="py-12 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-8">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-800 border border-blue-200 mb-3">
+          Interactive Calibration Tool
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          Room Clearance &amp; Atmos Angles Calculator
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-2">
+          Input your room dimensions and audio configuration to generate immediate physical clearances, height bounce angles, and mount recommendations.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Calculator Inputs Form -->
+        <div class="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm space-y-5">
+          <div>
+            <label for="calc-soundbar" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+              Primary Soundbar
+            </label>
+            <select id="calc-soundbar" onchange="runCalculator()" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900">
+              <option value="arc-ultra">Sonos Arc Ultra (9.1.4 Atmos)</option>
+              <option value="arc" selected>Sonos Arc (Dolby Atmos)</option>
+              <option value="beam">Sonos Beam Gen 2 (Virtual Atmos)</option>
+              <option value="ray">Sonos Ray (Forward Only)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="calc-rears" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+              Surround Speaker Setup
+            </label>
+            <select id="calc-rears" onchange="runCalculator()" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900">
+              <option value="era-300" selected>Sonos Era 300 (Diffuse Atmos)</option>
+              <option value="era-100">Sonos Era 100 (Direct Radiating)</option>
+              <option value="none">No Surrounds (Soundbar Only)</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="calc-tv-size" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                TV Screen Size
+              </label>
+              <select id="calc-tv-size" onchange="runCalculator()" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900">
+                <option value="43">43 inches</option>
+                <option value="55">55 inches</option>
+                <option value="65" selected>65 inches</option>
+                <option value="75">75 inches</option>
+                <option value="85">85 inches</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="calc-ceiling" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                Ceiling Height
+              </label>
+              <select id="calc-ceiling" onchange="runCalculator()" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900">
+                <option value="2.4" selected>8.0 ft / 2.4 m (Standard)</option>
+                <option value="2.7">9.0 ft / 2.7 m (Optimal)</option>
+                <option value="3.0">10.0 ft / 3.0 m (High)</option>
+                <option value="3.6">12.0 ft / 3.6 m (Vaulted / Poor)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label for="calc-distance" class="text-xs font-bold uppercase tracking-wider text-slate-700">
+                Seating Distance to TV: <span id="dist-val" class="font-extrabold text-slate-900">9 ft (2.7 m)</span>
+              </label>
+            </div>
+            <input type="range" id="calc-distance" min="5" max="16" value="9" step="0.5" oninput="runCalculator()" class="w-full accent-slate-900 cursor-pointer">
+            <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+              <span>5 ft (Close)</span>
+              <span>10 ft</span>
+              <span>16 ft (Deep)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-Time Acoustic Readout & Recommendations Card -->
+        <div class="lg:col-span-7 bg-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
+              <span class="text-xs uppercase font-bold tracking-widest text-amber-400">Acoustic Clearance Results</span>
+              <div class="flex items-center gap-2">
+                <span id="atmos-badge" class="px-2.5 py-0.5 rounded text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  Atmos Feasible
+                </span>
+                <button onclick="copySetupMarkdown()" id="share-btn" class="px-2.5 py-0.5 rounded text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors flex items-center gap-1.5" title="Copy markdown setup for Reddit / Forums">
+                  <span>📋</span>
+                  <span id="share-btn-text">Share Setup</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Dynamic Readout Metrics Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+              
+              <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                <p class="text-[11px] text-slate-400 uppercase font-semibold">Min. TV Gap</p>
+                <p id="res-gap" class="text-2xl font-black text-amber-400 mt-1">4.0 in</p>
+                <p id="res-gap-metric" class="text-[11px] text-slate-400 mt-0.5">10 cm below display</p>
+              </div>
+
+              <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                <p class="text-[11px] text-slate-400 uppercase font-semibold">Ceiling Bounce Point</p>
+                <p id="res-bounce" class="text-2xl font-black text-white mt-1">4.5 ft</p>
+                <p class="text-[11px] text-slate-400 mt-0.5">Out from TV wall</p>
+              </div>
+
+              <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                <p class="text-[11px] text-slate-400 uppercase font-semibold">Surround Toe-In</p>
+                <p id="res-angle" class="text-2xl font-black text-white mt-1">0°</p>
+                <p id="res-angle-sub" class="text-[11px] text-slate-400 mt-0.5">Straight forward</p>
+              </div>
+
+            </div>
+
+            <!-- Narrative Acoustic Feedback Box -->
+            <div id="res-critique" class="text-xs sm:text-sm text-slate-300 leading-relaxed bg-slate-800/40 p-4 rounded-xl border border-slate-800 space-y-2 mb-6">
+              <!-- Injected dynamically via JS -->
+            </div>
+          </div>
+
+          <!-- Dynamic Mount / Hardware Affiliate Hook -->
+          <div id="res-accessory" class="pt-5 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="space-y-1">
+              <p class="text-xs uppercase font-bold tracking-wider text-slate-400">Recommended Clearance Hardware</p>
+              <p id="accessory-title" class="text-sm font-bold text-white">Sanus Extendable Wall Mount for Sonos Arc</p>
+              <p id="accessory-desc" class="text-xs text-slate-400">Pulls forward up to 5 inches to clear TV overhang and maintain vertical up-firing dispersion.</p>
+            </div>
+            <a id="accessory-btn" href="https://www.amazon.co.uk/s?k=Sanus+Soundbar+TV+Mount+Sonos+Arc&tag=soundstageguide-21" target="_blank" rel="sponsored nofollow noopener" class="whitespace-nowrap px-4 py-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs tracking-tight text-center transition-all shadow-md">
+              View on Amazon
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SVG Acoustic Ray-Tracing Visualizer Section -->
+  <section id="visualizer" class="py-12 bg-slate-900 text-white border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-3">
+            Acoustic Physics Simulator
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Dolby Atmos Specular Reflection Ray-Tracer
+          </h2>
+          <p class="text-sm sm:text-base text-slate-400 mt-2 max-w-2xl">
+            See what happens when up-firing Atmos drivers hit obstacles versus a clear ceiling trajectory.
+          </p>
+        </div>
+
+        <!-- Mode Toggle Buttons -->
+        <div class="flex items-center gap-2 bg-slate-800 p-1.5 rounded-xl border border-slate-700 self-start md:self-auto">
+          <button onclick="setRayMode('optimal')" id="btn-ray-optimal" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-sm">
+            Optimal Setup (4"+ Gap)
+          </button>
+          <button onclick="setRayMode('blocked')" id="btn-ray-blocked" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-white">
+            Flush / Obstructed (0" Gap)
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-slate-950 rounded-2xl border border-slate-800 p-6 lg:p-8">
+        
+        <!-- Side-Profile Blueprint SVG Container -->
+        <div class="w-full overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 900 360" class="w-full h-auto max-w-4xl font-sans select-none">
+            <!-- Room Boundary Outline -->
+            <line x1="60" y1="40" x2="840" y2="40" stroke="#475569" stroke-width="2" stroke-dasharray="4 4" />
+            <text x="450" y="30" fill="#94a3b8" font-size="11" text-anchor="middle" font-weight="600">CEILING (FLAT DRYWALL / 8–9 FT)</text>
+
+            <!-- Front Wall & Floor Line -->
+            <line x1="120" y1="40" x2="120" y2="320" stroke="#334155" stroke-width="2" />
+            <line x1="60" y1="320" x2="840" y2="320" stroke="#475569" stroke-width="2" />
+            <text x="450" y="340" fill="#64748b" font-size="11" text-anchor="middle">FLOOR LEVEL</text>
+
+            <!-- Media Credenza -->
+            <rect x="90" y="240" width="130" height="80" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+            <text x="155" y="285" fill="#64748b" font-size="10" text-anchor="middle">Console</text>
+
+            <!-- Television Mount -->
+            <rect id="svg-tv" x="110" y="70" width="16" height="130" rx="2" fill="#020617" stroke="#475569" stroke-width="2" />
+            <text x="118" y="140" fill="#94a3b8" font-size="11" font-weight="bold" text-anchor="middle" transform="rotate(-90 118 140)">65" TV DISPLAY</text>
+
+            <!-- Seated Listener Figure -->
+            <g transform="translate(680, 180)">
+              <rect x="0" y="50" width="80" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+              <circle cx="35" cy="20" r="14" fill="#cbd5e1" />
+              <path d="M20 38 Q35 34 50 38 L48 75 L22 75 Z" fill="#94a3b8" />
+              <text x="35" y="-5" fill="#f8fafc" font-size="11" font-weight="bold" text-anchor="middle">Listener (Ear Level)</text>
+            </g>
+
+            <!-- Optimal Mode Group -->
+            <g id="svg-optimal-group">
+              <rect x="150" y="230" width="55" height="12" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="2" />
+              <circle cx="165" cy="232" r="3" fill="#f59e0b" />
+              <text x="177" y="222" fill="#f59e0b" font-size="10" font-weight="bold" text-anchor="middle">Arc (Clear)</text>
+
+              <path d="M 165 230 L 440 40 L 715 200" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 4"/>
+              <path d="M 205 236 L 710 205" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>
+              
+              <circle cx="440" cy="40" r="5" fill="#f59e0b" />
+              <text x="440" y="60" fill="#fcd34d" font-size="10" font-weight="bold" text-anchor="middle">Reflection Sweet Spot</text>
+            </g>
+
+            <!-- Blocked Mode Group (Initially Hidden) -->
+            <g id="svg-blocked-group" class="hidden">
+              <rect x="115" y="202" width="45" height="12" rx="3" fill="#0f172a" stroke="#f43f5e" stroke-width="2" />
+              <circle cx="125" cy="204" r="3" fill="#f43f5e" />
+              <text x="137" y="195" fill="#f43f5e" font-size="10" font-weight="bold" text-anchor="middle">Arc (Blocked)</text>
+
+              <path d="M 125 202 L 122 170 L 140 180" fill="none" stroke="#f43f5e" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 4"/>
+              <path d="M 126 202 L 126 130" fill="none" stroke="#f43f5e" stroke-width="2" stroke-dasharray="2 3"/>
+
+              <circle cx="122" cy="180" r="14" fill="#f43f5e" fill-opacity="0.2" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="195" y="175" fill="#f43f5e" font-size="10" font-weight="bold">❌ Sound trapped behind TV bezel</text>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Explanatory State Banner -->
+        <div id="ray-feedback" class="mt-4 p-4 rounded-xl border border-amber-500/30 bg-amber-500/10 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <span class="font-bold text-amber-400">✓ Optimal Atmos Path:</span> With a 4"–5.5" clearance under the TV screen and the soundbar pulled flush with the front console edge, upward acoustic waves travel unimpeded. Soundwaves reflect off the ceiling at approximately 45%–50% of the room depth, dropping ambient height cues cleanly into the seated listening position.
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sonos App EQ & Boundary Tuning Assistant Section -->
+  <section id="eq-tuner" class="py-12 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-8">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-800 border border-indigo-200 mb-3">
+          Software Calibration Assistant
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          Sonos App EQ &amp; Boundary Baseline Tuner
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-2">
+          No iOS device for Trueplay? Irregular room shape? Select your boundary conditions to calculate baseline EQ and Loudness adjustments for the Sonos app.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- EQ Inputs -->
+        <div class="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm space-y-5">
+          <div>
+            <label for="eq-speaker" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+              Speaker Model
+            </label>
+            <select id="eq-speaker" onchange="runEqTuner()" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900">
+              <option value="five">Sonos Five / Play:5 (Bass Heavy)</option>
+              <option value="era-100" selected>Sonos Era 100 (Stereo Compact)</option>
+              <option value="era-300">Sonos Era 300 (Spatial Audio)</option>
+              <option value="beam">Sonos Beam Gen 2</option>
+              <option value="arc">Sonos Arc / Arc Ultra</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="eq-boundary" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+              Physical Placement Position
+            </label>
+            <select id="eq-boundary" onchange="runEqTuner()" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900">
+              <option value="corner">Deep Room Corner (&lt; 6" from two walls)</option>
+              <option value="wall" selected>Against Flat Wall (&lt; 4" rear gap)</option>
+              <option value="shelf">Inside Bookshelf or Credenza Cavity</option>
+              <option value="open">Open Air / Floor Stand (&gt; 18" clearance)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="eq-room" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+              Room Reflectivity / Flooring
+            </label>
+            <select id="eq-room" onchange="runEqTuner()" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900">
+              <option value="hard">Hard Surfaces (Tiles, Hardwood, Large Windows)</option>
+              <option value="normal" selected>Mixed (Hardwood with Area Rug &amp; Curtains)</option>
+              <option value="soft">Soft Absorptive (Full Carpet, Plush Sofas, Drapes)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Simulated Sonos App Sliders -->
+        <div class="lg:col-span-7 bg-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl space-y-6">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+            <span class="text-xs uppercase font-bold tracking-widest text-amber-400">Sonos App Recommended Sliders</span>
+            <span class="text-[11px] text-slate-400 font-mono">Settings &gt; System &gt; EQ</span>
+          </div>
+
+          <!-- Bass Slider Mockup -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-xs font-bold">
+              <span class="text-slate-300">Bass Slider</span>
+              <span id="eq-val-bass" class="text-amber-400 font-mono text-sm">-2</span>
+            </div>
+            <div class="relative w-full bg-slate-800 h-3 rounded-full overflow-hidden">
+              <div id="eq-bar-bass" class="bg-amber-400 h-full rounded-full transition-all duration-300" style="width: 40%"></div>
+            </div>
+            <div class="flex justify-between text-[10px] text-slate-500 font-mono">
+              <span>-10 (Cut)</span>
+              <span>0 (Flat)</span>
+              <span>+10 (Boost)</span>
+            </div>
+          </div>
+
+          <!-- Treble Slider Mockup -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-xs font-bold">
+              <span class="text-slate-300">Treble Slider</span>
+              <span id="eq-val-treble" class="text-sky-400 font-mono text-sm">+1</span>
+            </div>
+            <div class="relative w-full bg-slate-800 h-3 rounded-full overflow-hidden">
+              <div id="eq-bar-treble" class="bg-sky-400 h-full rounded-full transition-all duration-300" style="width: 55%"></div>
+            </div>
+            <div class="flex justify-between text-[10px] text-slate-500 font-mono">
+              <span>-10 (Cut)</span>
+              <span>0 (Flat)</span>
+              <span>+10 (Boost)</span>
+            </div>
+          </div>
+
+          <!-- Loudness Toggle Mockup -->
+          <div class="flex items-center justify-between p-3.5 bg-slate-800/80 rounded-xl border border-slate-700">
+            <div>
+              <p class="text-xs font-bold text-white">Loudness Toggle</p>
+              <p id="eq-loudness-sub" class="text-[11px] text-slate-400">Boosts bass and treble at lower listening volumes.</p>
+            </div>
+            <span id="eq-loudness-badge" class="px-2.5 py-1 rounded-md text-xs font-black bg-emerald-500 text-slate-950">
+              ON
+            </span>
+          </div>
+
+          <!-- Narrative EQ Explanation -->
+          <div id="eq-reasoning" class="text-xs text-slate-300 leading-relaxed bg-slate-800/40 p-4 rounded-xl border border-slate-800">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -750,6 +1196,24 @@
           </h3>
           <div class="space-y-4 text-xs sm:text-sm">
             <div class="bg-white p-4 rounded-xl border border-slate-200">
+              <h4 class="font-bold text-slate-900">Can I place a Sonos Era 300 inside an IKEA Kallax or enclosed shelf?</h4>
+              <p class="mt-1 text-slate-600">
+                No. The Sonos Era 300 features upward-firing height transducers and angled side-firing drivers for Dolby Atmos diffusion. Enclosing the speaker inside a cabinet or IKEA Kallax cube completely obstructs these drivers, ruining spatial sound dispersion and causing severe cavity resonance.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-slate-200">
+              <h4 class="font-bold text-slate-900">How much clearance does the Sonos Arc or Arc Ultra need under a TV?</h4>
+              <p class="mt-1 text-slate-600">
+                The Sonos Arc requires a minimum gap of 4 inches (10 cm) below the bottom of the TV bezel, while the Sonos Arc Ultra requires at least 5.5 inches (14 cm). Mounting either soundbar flush beneath a TV physically blocks the upward-firing height channels, preventing Dolby Atmos ceiling reflections.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-slate-200">
+              <h4 class="font-bold text-slate-900">Should Sonos Era 300 rear surround speakers be angled towards the listener?</h4>
+              <p class="mt-1 text-slate-600">
+                No. Unlike traditional direct-radiating speakers or the Era 100, Era 300 rear surrounds must face straight forward towards the television. The Era 300 relies on outward side-firing drivers to reflect surround audio off side walls; angling them inward fires side channels straight into listeners' faces.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-slate-200">
               <h4 class="font-bold text-slate-900">Can Sonos Trueplay fix bad speaker placement?</h4>
               <p class="mt-1 text-slate-600">
                 Trueplay uses your iOS device or speaker microphones to adjust EQ frequency curves and trim boundary gain. However, software cannot bend soundwaves around physical obstructions. If an up-firing driver is blocked by a shelf or a soundbar is hidden in a cupboard, Trueplay cannot restore the lost audio.
@@ -839,10 +1303,11 @@
     </div>
   </footer>
 
-  <!-- Filter Script -->
+  <!-- Scripts -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // 1. Comparison Matrix Filters
     function filterCategory(category) {
       const buttons = document.querySelectorAll('.filter-btn');
       buttons.forEach(btn => {
@@ -863,6 +1328,237 @@
         }
       });
     }
+
+    // 2. Interactive Room Clearance Calculator
+    function runCalculator() {
+      const soundbar = document.getElementById('calc-soundbar').value;
+      const rears = document.getElementById('calc-rears').value;
+      const tvSize = parseInt(document.getElementById('calc-tv-size').value, 10);
+      const ceilingHeight = parseFloat(document.getElementById('calc-ceiling').value);
+      const distance = parseFloat(document.getElementById('calc-distance').value);
+
+      const meters = (distance * 0.3048).toFixed(1);
+      document.getElementById('dist-val').textContent = `${distance} ft (${meters} m)`;
+
+      let minGapInches = 0;
+      let minGapMetric = "0 cm";
+      let accessoryTitle = "";
+      let accessoryDesc = "";
+      let accessoryQuery = "";
+
+      if (soundbar === 'arc-ultra') {
+        minGapInches = 5.5;
+        minGapMetric = "14 cm below display";
+        accessoryTitle = "Sanus Extendable Soundbar TV Mount";
+        accessoryDesc = "Essential to slide soundbar forward beyond TV overhang for unobstructed 9.1.4 height firing.";
+        accessoryQuery = "Sanus+Soundbar+TV+Mount+Sonos+Arc";
+      } else if (soundbar === 'arc') {
+        minGapInches = 4.0;
+        minGapMetric = "10 cm below display";
+        accessoryTitle = "Official Sonos Arc Extendable Wall Mount";
+        accessoryDesc = "Extends 4 inches from the wall to clear deep TVs and prevent upward acoustic bounce interference.";
+        accessoryQuery = "Sonos+Arc+Wall+Mount+Official";
+      } else if (soundbar === 'beam') {
+        minGapInches = 2.5;
+        minGapMetric = "6 cm below display";
+        accessoryTitle = "Sanus Beam TV-Mount Bracket";
+        accessoryDesc = "Fastens directly beneath TV VESA brackets to ensure side-radiating arrays aren't boxed in.";
+        accessoryQuery = "Sanus+Soundbar+TV+Mount+Sonos+Beam";
+      } else if (soundbar === 'ray') {
+        minGapInches = 1.5;
+        minGapMetric = "4 cm below display";
+        accessoryTitle = "Sonos Ray Wall Mount Bracket";
+        accessoryDesc = "Clean front mount; forward-firing design requires zero height clearance overhead.";
+        accessoryQuery = "Sonos+Ray+Wall+Mount";
+      }
+
+      document.getElementById('res-gap').textContent = `${minGapInches.toFixed(1)} in`;
+      document.getElementById('res-gap-metric').textContent = minGapMetric;
+
+      const bouncePointFt = (distance / 2).toFixed(1);
+      const isAtmos = (soundbar === 'arc' || soundbar === 'arc-ultra');
+      const badge = document.getElementById('atmos-badge');
+
+      if (!isAtmos) {
+        document.getElementById('res-bounce').textContent = "N/A";
+        badge.textContent = "Virtual / Stereo";
+        badge.className = "px-2.5 py-0.5 rounded text-xs font-bold bg-slate-700 text-slate-300 border border-slate-600";
+      } else if (ceilingHeight > 3.2) {
+        document.getElementById('res-bounce').textContent = `${bouncePointFt} ft`;
+        badge.textContent = "Ceiling Too High";
+        badge.className = "px-2.5 py-0.5 rounded text-xs font-bold bg-rose-500/20 text-rose-400 border border-rose-500/30";
+      } else {
+        document.getElementById('res-bounce').textContent = `${bouncePointFt} ft`;
+        badge.textContent = "Optimal Atmos";
+        badge.className = "px-2.5 py-0.5 rounded text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
+      }
+
+      if (rears === 'era-300') {
+        document.getElementById('res-angle').textContent = "0°";
+        document.getElementById('res-angle-sub').textContent = "Face straight forward";
+      } else if (rears === 'era-100') {
+        document.getElementById('res-angle').textContent = "30°–45°";
+        document.getElementById('res-angle-sub').textContent = "Toe-in toward sofa";
+      } else {
+        document.getElementById('res-angle').textContent = "None";
+        document.getElementById('res-angle-sub').textContent = "Front stage only";
+      }
+
+      let critiqueHtml = "";
+      if (soundbar === 'arc' || soundbar === 'arc-ultra') {
+        critiqueHtml += `<p><strong>Soundbar Placement:</strong> With a <strong>${tvSize}"</strong> screen, leave at least <strong>${minGapInches}"</strong> under the bezel. Soundwaves shoot upward at 20°–30°; if the TV protrudes out more than 2 inches, pull the soundbar flush with the front lip of your console.</p>`;
+      } else {
+        critiqueHtml += `<p><strong>Soundbar Placement:</strong> The <strong>${soundbar.toUpperCase()}</strong> has no up-firing drivers, making it safe for low clearances or enclosed shelves (flush with front edge).</p>`;
+      }
+
+      if (rears === 'era-300') {
+        critiqueHtml += `<p><strong>Surround Strategy:</strong> Do NOT angle your Era 300s inward. Keep them aimed parallel with the side walls toward the TV so their side-firing compression drivers properly bounce surround channels off room boundaries.</p>`;
+      } else if (rears === 'era-100') {
+        critiqueHtml += `<p><strong>Surround Strategy:</strong> Angle the Era 100s directly toward the central listening sweet spot. Position tweeters approximately at ear height (36–42" from floor).</p>`;
+      }
+
+      if (ceilingHeight > 3.0 && isAtmos) {
+        critiqueHtml += `<p class="text-amber-400 font-semibold">⚠️ Note: Ceilings over 10 ft weaken Atmos reflections noticeably. You will need to boost Height Audio in the Sonos App by +4 to +6 dB.</p>`;
+      }
+
+      document.getElementById('res-critique').innerHTML = critiqueHtml;
+
+      document.getElementById('accessory-title').textContent = accessoryTitle;
+      document.getElementById('accessory-desc').textContent = accessoryDesc;
+      document.getElementById('accessory-btn').href = `https://www.amazon.co.uk/s?k=${accessoryQuery}&tag=soundstageguide-21`;
+    }
+
+    function copySetupMarkdown() {
+      const soundbar = document.getElementById('calc-soundbar').options[document.getElementById('calc-soundbar').selectedIndex].text;
+      const rears = document.getElementById('calc-rears').options[document.getElementById('calc-rears').selectedIndex].text;
+      const tvSize = document.getElementById('calc-tv-size').value;
+      const ceiling = document.getElementById('calc-ceiling').options[document.getElementById('calc-ceiling').selectedIndex].text;
+      const distance = document.getElementById('calc-distance').value;
+      const minGap = document.getElementById('res-gap').textContent;
+      const bounce = document.getElementById('res-bounce').textContent;
+      const angle = document.getElementById('res-angle').textContent;
+
+      const markdown = `### 🔊 My Sonos Room Acoustic Setup
+* **Soundbar:** ${soundbar}
+* **Surrounds:** ${rears}
+* **TV Size:** ${tvSize}"
+* **Ceiling Height:** ${ceiling}
+* **Seating Distance:** ${distance} ft
+---
+* **Recommended TV Gap:** ${minGap}
+* **Atmos Ceiling Bounce Point:** ${bounce} from TV wall
+* **Surround Toe-In Angle:** ${angle}
+*(Generated via soundstageguide.com)*`;
+
+      navigator.clipboard.writeText(markdown).then(() => {
+        const btnText = document.getElementById('share-btn-text');
+        btnText.textContent = "Copied!";
+        setTimeout(() => {
+          btnText.textContent = "Share Setup";
+        }, 2000);
+      });
+    }
+
+    // 3. SVG Ray-Tracing Visualizer Toggle
+    function setRayMode(mode) {
+      const optimalGrp = document.getElementById('svg-optimal-group');
+      const blockedGrp = document.getElementById('svg-blocked-group');
+      const btnOpt = document.getElementById('btn-ray-optimal');
+      const btnBlk = document.getElementById('btn-ray-blocked');
+      const feedback = document.getElementById('ray-feedback');
+
+      if (mode === 'optimal') {
+        optimalGrp.classList.remove('hidden');
+        blockedGrp.classList.add('hidden');
+        btnOpt.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-sm";
+        btnBlk.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-white";
+        feedback.className = "mt-4 p-4 rounded-xl border border-amber-500/30 bg-amber-500/10 text-xs sm:text-sm text-slate-300 leading-relaxed";
+        feedback.innerHTML = `<span class="font-bold text-amber-400">✓ Optimal Atmos Path:</span> With a 4"–5.5" clearance under the TV screen and the soundbar pulled flush with the front console edge, upward acoustic waves travel unimpeded. Soundwaves reflect off the ceiling at approximately 45%–50% of the room depth, dropping ambient height cues cleanly into the seated listening position.`;
+      } else {
+        optimalGrp.classList.add('hidden');
+        blockedGrp.classList.remove('hidden');
+        btnBlk.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-rose-500 text-white shadow-sm";
+        btnOpt.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-white";
+        feedback.className = "mt-4 p-4 rounded-xl border border-rose-500/30 bg-rose-500/10 text-xs sm:text-sm text-slate-300 leading-relaxed";
+        feedback.innerHTML = `<span class="font-bold text-rose-400">✕ Blocked / Flush Occlusion:</span> Mounting the soundbar tight under the TV chassis physically blocks the 20°–30° upward height transducers. Upward soundwaves bounce back into the wall or rear of the TV bezel, causing high-frequency comb filtering, echo flutter, and a complete loss of overhead Atmos objects.`;
+      }
+    }
+
+    // 4. Sonos App EQ & Boundary Tuning Assistant
+    function runEqTuner() {
+      const speaker = document.getElementById('eq-speaker').value;
+      const boundary = document.getElementById('eq-boundary').value;
+      const room = document.getElementById('eq-room').value;
+
+      let bass = 0;
+      let treble = 0;
+      let loudness = "ON";
+      let reasons = [];
+
+      if (boundary === 'corner') {
+        bass -= 3;
+        reasons.push("Corner loading boosts bass frequencies by up to +9 dB; cutting Bass by -3 tames room mode resonance.");
+      } else if (boundary === 'wall') {
+        bass -= 1;
+        reasons.push("Half-space wall proximity provides natural bass boundary reinforcement (+3 dB).");
+      } else if (boundary === 'shelf') {
+        bass -= 2;
+        reasons.push("Enclosed shelf cavities create Helmholtz boom in the 100–250 Hz range; dial down low-end.");
+      } else if (boundary === 'open') {
+        bass += 1;
+        reasons.push("Free space placement has zero boundary gain; slight low-end boost restores acoustic weight.");
+      }
+
+      if (speaker === 'five') {
+        bass -= 1;
+        reasons.push("The Five features powerful native low-frequency sub-bass drivers.");
+      } else if (speaker === 'arc') {
+        reasons.push("Arc speech clarity improves when bass resonance is properly managed.");
+      }
+
+      if (room === 'hard') {
+        treble -= 2;
+        reasons.push("Hardwood, tile, and bare glass bounce high frequencies aggressively; cutting Treble prevents listening fatigue.");
+      } else if (room === 'soft') {
+        treble += 2;
+        reasons.push("Carpets, plush seating, and heavy curtains absorb upper frequencies; boost Treble to recover vocal air.");
+      } else {
+        reasons.push("Mixed furnishings provide balanced specular acoustic reflections.");
+      }
+
+      if (boundary === 'corner' && room === 'hard') {
+        loudness = "OFF";
+        reasons.push("Loudness is recommended OFF to prevent excessive low-frequency bloom.");
+      } else {
+        loudness = "ON";
+      }
+
+      bass = Math.max(-10, Math.min(10, bass));
+      treble = Math.max(-10, Math.min(10, treble));
+
+      document.getElementById('eq-val-bass').textContent = (bass > 0 ? `+${bass}` : `${bass}`);
+      document.getElementById('eq-val-treble').textContent = (treble > 0 ? `+${treble}` : `${treble}`);
+      
+      const bassPct = ((bass + 10) / 20) * 100;
+      const treblePct = ((treble + 10) / 20) * 100;
+      document.getElementById('eq-bar-bass').style.width = `${bassPct}%`;
+      document.getElementById('eq-bar-treble').style.width = `${treblePct}%`;
+
+      const lBadge = document.getElementById('eq-loudness-badge');
+      lBadge.textContent = loudness;
+      lBadge.className = loudness === "ON" 
+        ? "px-2.5 py-1 rounded-md text-xs font-black bg-emerald-500 text-slate-950" 
+        : "px-2.5 py-1 rounded-md text-xs font-black bg-slate-700 text-slate-300";
+
+      document.getElementById('eq-reasoning').innerHTML = `<p class="font-bold text-slate-200 mb-1">Acoustic Logic:</p><ul class="list-disc list-inside space-y-1">` + 
+        reasons.map(r => `<li>${r}</li>`).join('') + `</ul>`;
+    }
+
+    // Initialize tools on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      runCalculator();
+      runEqTuner();
+    });
   </script>
 
 </body>
