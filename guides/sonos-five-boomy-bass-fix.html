@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-63LZ6DCD7R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-63LZ6DCD7R');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Fix Boomy Bass on the Sonos Five Without Trueplay | SoundstageGuide</title>
+  <meta name="description" content="Fix boomy, muddy bass on the Sonos Five without iOS Trueplay. Master boundary gain compensation, mechanical decoupling, vertical vs horizontal DSP, and manual EQ tuning.">
+  <link rel="canonical" href="https://soundstageguide.com/guides/sonos-five-boomy-bass-fix.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://soundstageguide.com/guides/sonos-five-boomy-bass-fix.html">
+  <meta property="og:title" content="How to Fix Boomy Bass on the Sonos Five Without Trueplay">
+  <meta property="og:description" content="Using Android or turntable line-in without iOS Trueplay? Master physical placement, acoustic decoupling, and manual Sonos app EQ trims to fix muddy bass on the Sonos Five.">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://soundstageguide.com/guides/sonos-five-boomy-bass-fix.html">
+  <meta name="twitter:title" content="How to Fix Boomy Bass on the Sonos Five Without Trueplay">
+  <meta name="twitter:description" content="Physical and EQ fixes for Sonos Five low-end resonance, boundary gain, and turntable feedback without Apple Trueplay.">
+
+  <!-- Favicon (Inline Acoustic Wave SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><path d='M7 16h2m3-5v10m5-13v16m5-11v6m5-4h2' stroke='%23f59e0b' stroke-width='2.5' stroke-linecap='round'/></svg>">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              800: '#1e293b',
+              900: '#0f172a',
+              amber: '#f59e0b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Structured Data: Article & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "How to Fix Boomy Bass on the Sonos Five Without Trueplay",
+        "description": "A comprehensive acoustic guide to mitigating bloated bass and resonance on the Sonos Five using manual EQ calibration, boundary distance rules, and physical isolation pads.",
+        "author": {
+          "@type": "Organization",
+          "name": "SoundstageGuide"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "SoundstageGuide",
+          "url": "https://soundstageguide.com/"
+        },
+        "mainEntityOfPage": "https://soundstageguide.com/guides/sonos-five-boomy-bass-fix.html",
+        "datePublished": "2026-09-25",
+        "dateModified": "2026-09-25"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why does the Sonos Five sound boomy compared to smaller Sonos speakers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Sonos Five houses three high-excursion woofers in a sealed acoustic enclosure capable of producing low frequencies down to ~35 Hz. When placed within 6 to 12 inches of a solid wall or room corner, boundary gain reinforces this low-end energy by +6 dB to +12 dB, creating overwhelming room mode resonance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the best manual EQ settings for a Sonos Five placed near a wall?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Set the Bass slider in the Sonos app to -2 or -3, leave Treble at 0 (or +1 if the room has heavy carpets/curtains), and turn the Loudness toggle OFF if listening at moderate to high volumes. This cuts artificial boundary gain without flattening mid-range vocals."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does orienting the Sonos Five vertically reduce bass boom?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Rotating the Sonos Five vertically triggers internal accelerometers that switch the speaker from wide stereo DSP to a focused mono dispersion. This narrows lateral bass interaction with adjacent side walls, reducing room mode buildup when placed in tighter spaces."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased font-sans flex flex-col min-h-screen">
+
+  <!-- Compliance Banner -->
+  <div class="bg-slate-100 border-b border-slate-200 text-slate-600 text-[11px] py-1.5 px-4 text-center">
+    <span>SoundstageGuide is an independent acoustic resource. As an Amazon Associate I earn from qualifying purchases at no extra cost to you.</span>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="border-b border-slate-200 bg-white sticky top-0 z-30 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="https://soundstageguide.com/" class="flex items-center gap-2">
+        <span class="bg-slate-900 text-white font-black text-sm sm:text-base px-2.5 py-1 rounded tracking-tight">SOUNDSTAGE</span>
+        <span class="font-semibold text-slate-700 tracking-tight text-sm sm:text-base">Guide</span>
+      </a>
+      <nav class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm font-medium text-slate-600">
+        <a href="https://soundstageguide.com/#calculator" class="hover:text-slate-900 transition-colors">Acoustic Calculator</a>
+        <a href="https://soundstageguide.com/#matrix" class="hover:text-slate-900 transition-colors">Clearance Matrix</a>
+        <a href="https://soundstageguide.com/guides/" class="hover:text-slate-900 transition-colors">All Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="flex-grow py-8 max-w-4xl mx-auto px-4 sm:px-6 w-full">
+    
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-xs text-slate-500 mb-6 font-medium">
+      <a href="https://soundstageguide.com/" class="hover:text-slate-900 transition-colors">Home</a>
+      <span>/</span>
+      <a href="https://soundstageguide.com/guides/" class="hover:text-slate-900 transition-colors">Guides</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold truncate">Sonos Five Boomy Bass Fix</span>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="mb-10 space-y-4">
+      <div class="flex items-center gap-2.5">
+        <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-rose-100 text-rose-900 border border-rose-200">
+          EQ Calibration &amp; Acoustics
+        </span>
+        <span class="text-xs text-slate-400">5 min read • Android &amp; Vinyl Friendly</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        How to Fix Boomy Bass on the Sonos Five Without Trueplay
+      </h1>
+
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+        Using an Android phone, turntable line-in, or non-iOS setup? Here is how to master physical placement, orientation DSP, and manual EQ trims to eliminate muddy low-end from the Sonos Five.
+      </p>
+    </header>
+
+    <!-- Article Content -->
+    <article class="space-y-8 text-slate-700 text-sm sm:text-base leading-relaxed">
+      
+      <!-- Interactive Tool Teaser Box -->
+      <div class="p-5 bg-slate-900 text-white rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-md">
+        <div class="space-y-1">
+          <p class="text-xs uppercase font-bold text-amber-400 tracking-wider">Boundary EQ Tuner</p>
+          <p class="text-sm font-semibold text-slate-200">Want custom EQ sliders calculated for your exact room?</p>
+          <p class="text-xs text-slate-400">Select your boundary surface, flooring, and placement to calculate instant baseline slider values.</p>
+        </div>
+        <a href="https://soundstageguide.com/#eq-tuner" class="whitespace-nowrap px-4 py-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs tracking-tight text-center transition-all shadow">
+          Open EQ Tuner →
+        </a>
+      </div>
+
+      <!-- Section 1 -->
+      <section class="space-y-3">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+          1. Why the Sonos Five Suffers From Bloated Low-End
+        </h2>
+        <p>
+          The <strong>Sonos Five</strong> (and its predecessor, the Play:5 Gen 2) is an acoustic powerhouse. It packs three 10 cm high-excursion woofers powered by dedicated Class-D digital amplifiers, reaching deep down into sub-bass frequencies below 40 Hz.
+        </p>
+        <p>
+          Unlike smaller smart speakers that use passive radiators or DSP bass limiters, the Five moves serious amounts of air. When this driver array is set near boundary walls, physics takes over:
+        </p>
+        <ul class="list-disc list-inside space-y-2 pl-2 text-xs sm:text-sm">
+          <li><strong>Half-Space Wall Loading:</strong> Pushed within 6 inches of a drywall boundary, low frequencies bounce off the back wall in phase, providing a natural +3 dB to +6 dB boost.</li>
+          <li><strong>Eighth-Space Corner Loading:</strong> Tucked into a 90-degree room corner, the meeting of two walls and the floor acts as a horn, boosting perceived bass by up to +9 dB to +12 dB.</li>
+          <li><strong>Surface Resonance:</strong> Sitting on a hollow wooden credenza or sideboard turns the furniture itself into a secondary soundboard, vibrating at mid-bass resonance frequencies between 80 Hz and 160 Hz.</li>
+        </ul>
+        <p>
+          While Sonos Trueplay uses iOS microphones to identify and notch out these room peaks automatically, millions of Sonos Five owners use Android devices or analog turntable line-in sources where Trueplay is unavailable.
+        </p>
+      </section>
+
+      <!-- Section 2: Step-by-Step Manual EQ Formula -->
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+          2. The Manual Sonos App EQ Formula for Clear Bass
+        </h2>
+        <p>
+          Open your Sonos app, navigate to <strong>Settings &gt; System &gt; [Your Sonos Five Room] &gt; EQ</strong>, and apply these baseline compensations based on your physical placement:
+        </p>
+
+        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="bg-slate-100 border-b border-slate-200 text-slate-700 font-bold uppercase tracking-wider text-[11px]">
+                <th class="py-3 px-4">Placement Boundary</th>
+                <th class="py-3 px-4">Bass Slider</th>
+                <th class="py-3 px-4">Treble Slider</th>
+                <th class="py-3 px-4">Loudness Setting</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-slate-900">Deep Corner (&lt; 8" from both walls)</td>
+                <td class="py-3.5 px-4 font-semibold text-rose-700">-3 to -4</td>
+                <td class="py-3.5 px-4 text-slate-700">+1</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-slate-200 text-slate-800 text-xs font-semibold">OFF</span></td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-slate-900">Against Flat Wall (3" to 6" rear gap)</td>
+                <td class="py-3.5 px-4 font-semibold text-amber-700">-2</td>
+                <td class="py-3.5 px-4 text-slate-700">0 (Flat)</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-slate-200 text-slate-800 text-xs font-semibold">OFF (at mid/high vol)</span></td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-slate-900">On Hollow Wooden Credenza</td>
+                <td class="py-3.5 px-4 font-semibold text-amber-700">-2 to -3</td>
+                <td class="py-3.5 px-4 text-slate-700">+1</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-xs font-semibold">ON</span></td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-slate-900">Open Stand (&gt; 18" clearance)</td>
+                <td class="py-3.5 px-4 text-slate-700">0 (Flat)</td>
+                <td class="py-3.5 px-4 text-slate-700">0 (Flat)</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-xs font-semibold">ON</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl text-xs sm:text-sm text-amber-950 space-y-1">
+          <p class="font-bold">Why the Loudness Toggle Matters:</p>
+          <p>
+            The Sonos <strong>Loudness</strong> toggle applies a dynamic Fletcher-Munson equal-loudness curve, boosting sub-bass and treble at lower volumes. In a boundary-loaded room, leaving Loudness ON at moderate to high volumes doubles up on resonant boom. Turn it <strong>OFF</strong> if you regularly listen above 35% volume.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 3: Vertical vs Horizontal Orientation Hack -->
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+          3. The Orientation Hack: Horizontal vs. Vertical DSP
+        </h2>
+        <p>
+          The Sonos Five contains internal accelerometers that dynamically alter its digital signal processing based on how the unit physically rests:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          
+          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-sm space-y-2">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">Horizontal Orientation</h3>
+              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-blue-100 text-blue-800">Stereo Staging</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              When horizontal, the Five operates as a wide-dispersion stereo speaker. Its side tweeters and flanking woofers project sound outward at angles. In wide rooms, this produces expansive staging, but in narrow spaces or corners, it pushes intense low-mid energy directly into flanking side walls.
+            </p>
+          </div>
+
+          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-sm space-y-2">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">Vertical Orientation</h3>
+              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">Focused Monopole</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Rotating the Five vertically switches it into a focused mono soundfield. This significantly narrows horizontal dispersion, projecting energy forward rather than laterally into room corners. For single speakers placed in tight alcoves or corners, vertical placement tames room mode excitement instantly.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 4: Physical Decoupling & Turntable Rumble -->
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+          4. Mechanical Decoupling &amp; Turntable Feedback Loops
+        </h2>
+        <p>
+          A frequent source of boomy, uncontrolled bass occurs when a Sonos Five is placed on the same surface as a record player:
+        </p>
+        
+        <div class="p-4 bg-white rounded-xl border border-slate-200 space-y-2">
+          <h3 class="font-bold text-rose-700 flex items-center gap-1.5 text-sm sm:text-base">
+            <span>⚠️</span> The Acoustic Feedback Loop
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            The Five produces heavy low-end vibration. These kinetic vibrations travel through the tabletop, vibrate the turntable plinth, and are picked up by the sensitive phono cartridge stylus. The stylus feeds this vibration back into the Five via the line-in port, creating a self-reinforcing low-frequency hum and uncontrolled bass rumble.
+          </p>
+        </div>
+
+        <p>
+          To decouple the Five from resonant furniture and turntables, use high-density acoustic isolation pads:
+        </p>
+
+        <div class="space-y-4">
+          
+          <div class="p-5 bg-white rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-slate-900">High-Density Acoustic Isolation Pads</h3>
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">Essential for Vinyl</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600">
+                Dense acoustic foam or silicone decoupling pads decouple the Five from furniture tops, stopping cabinet vibrations from entering wooden credenzas or reaching your turntable stylus.
+              </p>
+            </div>
+            <a href="https://www.amazon.co.uk/s?k=Acoustic+Isolation+Pads+Studio+Monitor&tag=soundstageguide-21" target="_blank" rel="sponsored nofollow noopener" class="whitespace-nowrap px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs tracking-tight text-center transition-all shadow">
+              Check Price
+            </a>
+          </div>
+
+          <div class="p-5 bg-white rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-slate-900">Flexson Dedicated Floor Stand for Sonos Five</h3>
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800">Floor Placement</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600">
+                Gets the Five off furniture entirely. Rigid steel construction with acoustic floor spikes keeps low-end energy isolated from floorboards while positioning tweeters at seated ear level.
+              </p>
+            </div>
+            <a href="https://www.amazon.co.uk/s?k=Flexson+Floor+Stand+Sonos+Five&tag=soundstageguide-21" target="_blank" rel="sponsored nofollow noopener" class="whitespace-nowrap px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs tracking-tight text-center transition-all shadow">
+              Check Price
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 5: Summary Checklist -->
+      <section class="space-y-3">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+          5. The 4-Step Anti-Boom Checklist
+        </h2>
+        <ol class="list-decimal list-inside space-y-2 text-xs sm:text-sm pl-2">
+          <li><strong>Pull it out:</strong> Give the rear of the Five at least <strong>6 to 12 inches</strong> of breathing space from the drywall.</li>
+          <li><strong>Decouple it:</strong> Place silicone isolation pads or dense foam wedges underneath the rubber feet to isolate mechanical vibrations.</li>
+          <li><strong>Trim the EQ:</strong> In the Sonos app, slide <strong>Bass down to -2 or -3</strong> and toggle <strong>Loudness OFF</strong> for medium-to-high volume playback.</li>
+          <li><strong>Consider vertical mode:</strong> If placed inside an alcove or bookcase, rotate the Five vertically to narrow lateral reflection angles.</li>
+        </ol>
+      </section>
+
+      <!-- Section 6: FAQ -->
+      <section class="space-y-4 pt-6 border-t border-slate-200">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+          Frequently Asked Questions
+        </h2>
+        
+        <div class="space-y-3">
+          <div class="bg-white p-4 rounded-xl border border-slate-200">
+            <h3 class="font-bold text-slate-900 text-sm">Can I borrow a friend's iPhone just to run Trueplay once?</h3>
+            <p class="mt-1 text-xs sm:text-sm text-slate-600">
+              Yes, and it is highly recommended. Trueplay calibration data is written directly to the speaker's internal firmware memory. Once tuned using an iOS device, the calibration profile stays active even when controlled exclusively from Android phones or analog line-in inputs.
+            </p>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border border-slate-200">
+            <h3 class="font-bold text-slate-900 text-sm">Will cutting the Bass slider ruin hip-hop or electronic music?</h3>
+            <p class="mt-1 text-xs sm:text-sm text-slate-600">
+              No. Cutting the Bass slider by -2 to -3 simply negates the artificial boundary boost created by your room's walls. The actual sub-bass content recorded in the music track will sound punchier, tighter, and far more articulate.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </article>
+
+    <!-- Return to Hub Links -->
+    <div class="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="https://soundstageguide.com/guides/" class="text-xs font-bold text-slate-900 hover:text-amber-600 flex items-center gap-1 transition-colors">
+        <span>←</span> Back to All Placement Guides
+      </a>
+      <a href="https://soundstageguide.com/#eq-tuner" class="text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors">
+        Open Interactive EQ Tuner →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Legal & Transparency Footer -->
+  <footer class="border-t border-slate-200 bg-white py-10 text-xs text-slate-500 mt-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-4">
+      
+      <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 text-center max-w-2xl mx-auto">
+        <p class="font-semibold text-slate-700 mb-1">Affiliate Disclosure</p>
+        <p class="text-slate-600 leading-relaxed">
+          As an Amazon Associate I earn from qualifying purchases. SoundstageGuide participates in the Amazon EU Associates Programme, an affiliate advertising programme designed to provide a means for sites to earn advertising fees by linking to Amazon.co.uk.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-6 pt-2 text-xs font-semibold text-slate-600">
+        <a href="https://soundstageguide.com/" class="hover:text-slate-900 transition-colors">Home</a>
+        <a href="https://soundstageguide.com/#calculator" class="hover:text-slate-900 transition-colors">Acoustic Calculator</a>
+        <a href="https://soundstageguide.com/#matrix" class="hover:text-slate-900 transition-colors">Clearance Matrix</a>
+        <a href="https://soundstageguide.com/guides/" class="hover:text-slate-900 transition-colors">Acoustic Guides Directory</a>
+        <a href="https://soundstageguide.com/#privacy" class="hover:text-slate-900 transition-colors">Privacy Policy</a>
+      </div>
+
+      <div class="text-center space-y-2 pt-2">
+        <p class="text-slate-500">
+          SoundstageGuide is an independent acoustic guide and audio resource. We are not affiliated with, authorized, maintained, sponsored, or endorsed by Sonos, Inc. Sonos and all associated product names are registered trademarks of Sonos, Inc.
+        </p>
+        <p class="text-slate-400">© <span id="year"></span> SoundstageGuide. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
